@@ -1,6 +1,6 @@
 // Welcome.js
 import React, { useState, useEffect } from 'react';
-import { skapi } from '/home/vivian-lima/Documents/vscode/getting_started_templates/getting-started-template-react/src/skapi';
+import { skapi } from '../skapi';
 
 function Welcome() {
   const [welcomeMessage, setWelcomeMessage] = useState('');
