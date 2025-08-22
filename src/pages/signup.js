@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { skapi } from "../skapi";
 
 const Signup = () => {
@@ -68,7 +68,7 @@ const Signup = () => {
 
                 <div style={{ textAlign: "center", marginTop: "10px" }}>
                     <small>
-                        <a href="login.html">Already have an account?</a>
+                        <Link to="/login">Already have an account?</Link>
                     </small>
                 </div>
             </form>

@@ -47,68 +47,37 @@ const ChangePassword = () => {
 
     return (
         <main className="change-password">
-            <button
-                onClick={() => navigate("/update-profile")}
-                style={{
-                    background: "none",
-                    border: "none",
-                    color: "blue",
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                }}
-                aria-label="Go back to update profile"
-            >
-                Back
-            </button>
-
-            <h1>Change Password</h1>
+            <a href="/update-profile">Back</a>
 
             <form onSubmit={handleSubmit}>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Current Password</td>
-                            <td>
-                                <input
-                                    type="password"
-                                    name="current_password"
-                                    value={currentPassword}
-                                    onChange={(e) =>
-                                        setCurrentPassword(e.target.value)
-                                    }
-                                    placeholder="At least 6 characters"
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>New Password</td>
-                            <td>
-                                <input
-                                    type="password"
-                                    name="new_password"
-                                    value={newPassword}
-                                    onChange={(e) =>
-                                        setNewPassword(e.target.value)
-                                    }
-                                    placeholder="At least 6 characters"
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td style={{ textAlign: "right" }}>
-                                <br />
-                                <input
-                                    type="submit"
-                                    value={isLoading ? "Changing..." : "Change"}
-                                    disabled={isLoading}
-                                />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h1>Change Password</h1>
+
+                <label for="current_password">Current Password</label>
+                <input
+                    type="password"
+                    name="current_password"
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    placeholder="At least 6 characters"
+                    required
+                />
+
+                <label for="new_password">New Password</label>
+                <input
+                    type="password"
+                    name="new_password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder="At least 6 characters"
+                    required
+                />
+                <button
+                    type="submit"
+                    value={isLoading ? "Changing..." : "Change"}
+                    disabled={isLoading}
+                >
+                    Change
+                </button>
             </form>
 
             {error && (

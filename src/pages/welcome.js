@@ -1,4 +1,3 @@
-// Welcome.js
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { skapi } from "../skapi";
@@ -35,10 +34,21 @@ function Welcome() {
                 user?.name || user?.email || user?.user_id
             }!`}</p>
             <pre id="UserInfo">{JSON.stringify(user, null, 2)}</pre>
-            {/* <a href="/update-profile">Update Profile</a>
-            <br />
-            <a href="/remove-account">Remove Account</a> */}
             <button onClick={handleLogout}>Logout</button>
+
+            <div
+                style={{
+                    textAlign: "center",
+                    margin: "10px auto 0",
+                    display: "inline-block",
+                    width: "100%",
+                }}
+            >
+                <small>
+                    <a href="/update-profile">Update Profile</a> |{" "}
+                    <a href="/remove-account">Remove Account</a>
+                </small>
+            </div>
         </main>
     );
 }

@@ -82,106 +82,67 @@ const EmailVerification = () => {
 
     return (
         <main className="email-verification">
-            <button
-                onClick={() => navigate("/update-profile")}
-                aria-label="Go back to update profile"
-                style={{
-                    background: "none",
-                    border: "none",
-                    color: "blue",
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    padding: 0,
-                    fontSize: "1rem",
-                    marginBottom: "1rem",
-                }}
-            >
-                Back
-            </button>
+            <a href="/update-profile">Back</a>
 
-            <h1>Email Verification</h1>
+            <section>
+                <h1>Email Verification</h1>
 
-            <p>
-                Please check your email for the verification code.
-                <br />
-                Enter the received code below and click verify.
-            </p>
-
-            <p>
-                If you have not received the code, please check your spam
-                folder.
-                <br />
-                Or click{" "}
-                <button
-                    onClick={handleResendCode}
-                    style={{
-                        background: "none",
-                        border: "none",
-                        color: "blue",
-                        textDecoration: "underline",
-                        cursor: "pointer",
-                        padding: 0,
-                        fontSize: "1rem",
-                    }}
-                >
-                    HERE
-                </button>{" "}
-                to resend.
-            </p>
-
-            <form onSubmit={handleSubmit} style={{ marginTop: "2rem" }}>
-                <div
-                    id="div_singleInput"
-                    style={{
-                        display: "flex",
-                        gap: "1rem",
-                        flexDirection: "column",
-                    }}
-                >
-                    <input
-                        type="text"
-                        name="code"
-                        value={code}
-                        onChange={(e) => setCode(e.target.value)}
-                        placeholder="6 digits code"
-                        required
+                <p>
+                    Please check your email for the verification code.
+                    <br />
+                    Enter the received code below and click verify.
+                </p>
+                <p>
+                    If you have not received the code, please check your spam
+                    folder. Or click{" "}
+                    <a
+                        href=""
+                        onClick={handleResendCode}
                         style={{
-                            padding: "0.5rem",
-                            fontSize: "1rem",
-                            borderRadius: "4px",
-                            border: "1px solid #ccc",
+                            color: "blue",
+                            textDecoration: "underline",
                         }}
-                    />
-                    <div style={{ textAlign: "right" }}>
-                        <input
-                            type="submit"
-                            value={isLoading ? "Verifying..." : "Verify"}
-                            disabled={isLoading}
-                            style={{
-                                padding: "0.5rem 1rem",
-                                fontSize: "1rem",
-                                cursor: isLoading ? "not-allowed" : "pointer",
-                                opacity: isLoading ? 0.7 : 1,
-                            }}
-                        />
-                    </div>
-                </div>
-            </form>
+                    >
+                        HERE
+                    </a>{" "}
+                    to resend.
+                </p>
 
-            {error && (
-                <div
-                    className="error-message"
-                    style={{
-                        color: "red",
-                        marginTop: "1rem",
-                        padding: "0.5rem",
-                        backgroundColor: "#ffebee",
-                        borderRadius: "4px",
-                    }}
-                >
-                    {error}
-                </div>
-            )}
+                <form onSubmit={handleSubmit}>
+                    <div
+                        id="div_singleInput"
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                        }}
+                    >
+                        <input
+                            type="text"
+                            name="code"
+                            value={code}
+                            onChange={(e) => setCode(e.target.value)}
+                            placeholder="6 digits code"
+                            required
+                        />
+                        <button type="submit">Verify</button>
+                    </div>
+                </form>
+
+                {error && (
+                    <div
+                        className="error-message"
+                        style={{
+                            color: "red",
+                            marginTop: "1rem",
+                            padding: "0.5rem",
+                            backgroundColor: "#ffebee",
+                            borderRadius: "4px",
+                        }}
+                    >
+                        {error}
+                    </div>
+                )}
+            </section>
         </main>
     );
 };

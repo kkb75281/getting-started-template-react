@@ -44,80 +44,77 @@ const ForgotPassword = () => {
                     padding: 0,
                     fontSize: "1rem",
                     marginBottom: "1rem",
+                    textAlign: "left",
                 }}
             >
                 Back
             </button>
 
-            <h1>Forgot Password</h1>
+            <section>
+                <h1>Forgot Password</h1>
 
-            <p>
-                Input your login email address below and click on 'Submit'.
-                <br />
-                You will receive an email with a 6 digits verification code for
-                resetting your password.
-            </p>
+                <p>
+                    Input your login email address below and click on 'Submit'.
+                    <br />
+                    You will receive an email with a 6 digits verification code
+                    for resetting your password.
+                </p>
 
-            <form onSubmit={handleSubmit} style={{ marginTop: "2rem" }}>
-                <div style={{ marginBottom: "1rem" }}>
-                    <label
-                        htmlFor="email"
-                        style={{ display: "block", marginBottom: "0.5rem" }}
-                    >
-                        Email Address
-                    </label>
-                    <input
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="your@account.email"
-                        required
+                <p>
+                    <strong>Note: </strong>
+                    If your account's email address is not verified, you will
+                    not be able to reset your password.
+                </p>
+
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <input
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="your@account.email"
+                            required
+                            style={{
+                                width: "100%",
+                                padding: "0.5rem",
+                                fontSize: "1rem",
+                                borderRadius: "4px",
+                                border: "1px solid #ccc",
+                            }}
+                        />
+                    </div>
+
+                    <div style={{ textAlign: "right" }}>
+                        <input
+                            type="submit"
+                            value={isLoading ? "Submitting..." : "Submit"}
+                            disabled={isLoading}
+                            style={{
+                                padding: "0.5rem 1rem",
+                                fontSize: "1rem",
+                                cursor: isLoading ? "not-allowed" : "pointer",
+                                opacity: isLoading ? 0.7 : 1,
+                            }}
+                        />
+                    </div>
+                </form>
+
+                {error && (
+                    <div
+                        className="error-message"
                         style={{
-                            width: "100%",
+                            color: "red",
+                            marginTop: "1rem",
                             padding: "0.5rem",
-                            fontSize: "1rem",
+                            backgroundColor: "#ffebee",
                             borderRadius: "4px",
-                            border: "1px solid #ccc",
                         }}
-                    />
-                </div>
-
-                <div style={{ textAlign: "right" }}>
-                    <input
-                        type="submit"
-                        value={isLoading ? "Submitting..." : "Submit"}
-                        disabled={isLoading}
-                        style={{
-                            padding: "0.5rem 1rem",
-                            fontSize: "1rem",
-                            cursor: isLoading ? "not-allowed" : "pointer",
-                            opacity: isLoading ? 0.7 : 1,
-                        }}
-                    />
-                </div>
-            </form>
-
-            {error && (
-                <div
-                    className="error-message"
-                    style={{
-                        color: "red",
-                        marginTop: "1rem",
-                        padding: "0.5rem",
-                        backgroundColor: "#ffebee",
-                        borderRadius: "4px",
-                    }}
-                >
-                    {error}
-                </div>
-            )}
-
-            <p style={{ marginTop: "2rem" }}>
-                <strong>Note: </strong>
-                If your account's email address is not verified, you will not be
-                able to reset your password.
-            </p>
+                    >
+                        {error}
+                    </div>
+                )}
+            </section>
         </main>
     );
 };

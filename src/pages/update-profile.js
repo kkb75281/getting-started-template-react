@@ -103,104 +103,106 @@ const UpdateProfile = () => {
 
     return (
         <main className="update-profile">
-            <a href="/welcome">Back</a> <h1>Update Profile</h1>
+            <a href="/welcome">Back</a>
             <form onSubmit={handleUpdateProfile}>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Login Email</td>
-                            <td>
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="your@email.com"
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Your Name</td>
-                            <td>
-                                <input
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    placeholder="Your name (required)"
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Birthday</td>
-                            <td>
-                                <input
-                                    type="date"
-                                    value={birthdate}
-                                    onChange={(e) =>
-                                        setBirthdate(e.target.value)
-                                    }
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Email to Public</td>
-                            <td>
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                    }}
-                                >
-                                    <input
-                                        id="emailPublic"
-                                        type="checkbox"
-                                        checked={emailPublic}
-                                        onChange={handleEmailPublicChange}
-                                        disabled={!emailVerified}
-                                    />
-                                    {!emailVerified && (
-                                        <small style={{ marginLeft: "8px" }}>
-                                            Email verification required
-                                        </small>
-                                    )}
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Email Verified</td>
-                            <td>
-                                <span style={{ fontWeight: "bold" }}>
-                                    {emailVerified ? "Yes" : "No"}
-                                </span>
+                <h1>Update Profile</h1>
 
-                                {!emailVerified && (
-                                    <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            handleVerifyEmail();
-                                        }}
-                                        style={{ marginLeft: "10px" }}
-                                    >
-                                        Click to verify your email
-                                    </button>
-                                )}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td>
-                                <a href="/change-password">Change Password</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colSpan="2" style={{ textAlign: "right" }}>
-                                <br />
-                                <input type="submit" value="Update" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <label for="email">Login Email</label>
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    required
+                />
+
+                <label for="name">Your Name</label>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your name (required)"
+                    required
+                />
+
+                <label for="birthdate">Birthday</label>
+                <input
+                    type="date"
+                    value={birthdate}
+                    onChange={(e) => setBirthdate(e.target.value)}
+                />
+
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                    }}
+                >
+                    <label
+                        for="emailPublic"
+                        style={{
+                            minWidth: "110px",
+                            display: "inline-block",
+                            marginRight: "8px",
+                        }}
+                    >
+                        Email to Public
+                    </label>
+                    <input
+                        id="emailPublic"
+                        type="checkbox"
+                        checked={emailPublic}
+                        onChange={handleEmailPublicChange}
+                        disabled={!emailVerified}
+                    />
+                    {!emailVerified && (
+                        <small style={{ marginLeft: "8px" }}>
+                            Email verification required
+                        </small>
+                    )}
+                </div>
+
+                <div>
+                    <label
+                        for="emailVerified"
+                        style={{
+                            minWidth: "110px",
+                            display: "inline-block",
+                            marginRight: "8px",
+                        }}
+                    >
+                        Email Verified
+                    </label>
+                    <span style={{ fontWeight: "bold" }}>
+                        {emailVerified ? "Yes" : "No"}
+                    </span>
+
+                    {!emailVerified && (
+                        <button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleVerifyEmail();
+                            }}
+                            style={{ marginLeft: "10px" }}
+                        >
+                            Click to verify your email
+                        </button>
+                    )}
+                </div>
+                <button tyep="submit">Update</button>
+
+                <div
+                    style={{
+                        textAlign: "center",
+                        margin: "10px auto 0",
+                        display: "inline-block",
+                        width: "100%",
+                    }}
+                >
+                    <small>
+                        <a href="/change-password">Change Password</a>
+                    </small>
+                </div>
             </form>
         </main>
     );

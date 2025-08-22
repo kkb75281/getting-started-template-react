@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { skapi } from "../skapi";
 
 const Login = () => {
@@ -64,6 +64,16 @@ const Login = () => {
                 />
                 <br />
                 <button type="submit">Login</button>
+
+                <div style={{ textAlign: "center", marginTop: "10px" }}>
+                    <small>
+                        <Link to="/signup">Don't have an account?</Link>
+                    </small>
+                    <span> | </span>
+                    <small>
+                        <Link to="/forgot-password">Forgot Password?</Link>
+                    </small>
+                </div>
             </form>
         </main>
     );
