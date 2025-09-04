@@ -35,6 +35,10 @@ npm run build
 
 Then serve the contents of the `build` folder using your preferred static server.
 
+## Live Demo
+
+You can check our live demo [Here](https://getting-started-template-react.skapi.com).
+
 ## Important!
 
 Replace the `SERVICE_ID` and `OWNER_ID` values in `src/skapi.js` with your own service information.
