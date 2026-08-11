@@ -4,9 +4,9 @@ This is a React starter template for Skapi.
 
 This template includes basic features for your React application:
 
--   Signup
--   Signup email verification
--   Login
+- Signup
+- Signup email verification
+- Login
 
 ## How To Run
 
@@ -41,6 +41,6 @@ You can check our live demo [Here](https://getting-started-template-react.skapi.
 
 ## Important!
 
-Replace the `SERVICE_ID` and `OWNER_ID` values in `src/skapi.js` with your own service information.
+Replace the `PROJECT_ID` and `OWNER_ID` values in `src/skapi.js` with your own project information.
 
-You can get your own service ID from [Skapi](https://www.skapi.com).
+You can get your own project ID from [Skapi](https://www.skapi.com).
