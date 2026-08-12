@@ -41,6 +41,6 @@ You can check our live demo [Here](https://getting-started-template-react.skapi.
 
 ## Important!
 
-Replace the `PROJECT_ID` and `OWNER_ID` values in `src/skapi.js` with your own project information.
+Replace the `PROJECT_ID` value in `src/skapi.js` with your own project information.
 
 You can get your own project ID from [Skapi](https://www.skapi.com).
